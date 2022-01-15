@@ -229,7 +229,10 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 }
 
 // Specific component overrides, pieces that are not in line with the general theming
-
+.mat-typography {
+  font: 400 16px / 20px Roboto;
+  letter-spacing: 0.0179em;
+}
 // Handle buttons appropriately, with respect to line-height
 .mat-raised-button, .mat-stroked-button, .mat-flat-button {
   padding: 0 1.15em;
