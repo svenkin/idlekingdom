@@ -2,9 +2,23 @@
     margin: 20px auto;
     width: 80vw;
 }
-.toolbar-height{
+.toolbar-height {
     height: 5vh;
 }
 .mat-drawer-container.mat-sidenav-container {
-    height: 90vh;;
+    height: 90vh;
+}
+.toolbar-link-icon {
+    padding: 8px;
+}
+.spacer {
+    flex: 1 1 auto;
+}
+.link-button {
+    display: flex;
+    height: 100%;
+}
+.link-icon{
+    height: 100%;
+    padding: 3px 15px 3px 0;
 }

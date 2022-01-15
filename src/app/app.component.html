@@ -3,13 +3,17 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Idle Kingdom Ressources</span>
+  <span class="spacer"></span>
+  <a href="https://discord.gg/KMbhHrZrHF" class="link-button"><img src="assets/discord_icon.svg" alt="Discord icon"
+      class="toolbar-link-icon"></a>
+  <a href="https://www.reddit.com/r/IdleKingdom/" class="link-button"><img src="assets/reddit_icon.svg"
+      alt="Reddit icon" class="toolbar-link-icon"></a>
 </mat-toolbar>
 <mat-sidenav-container heigth="90vh">
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="'/hero-cost-calculator'"> Hero Cost Calculator </a>
-      <a mat-list-item href="https://discord.gg/KMbhHrZrHF"> Join the discord </a>
-      <a mat-list-item href="https://www.reddit.com/r/IdleKingdom/"> Join reddit </a>
+      <a mat-list-item [routerLink]="'/hero-cost-calculator'"><img src="assets/herocost.png"
+          alt="Hero Cost Calculator Icon" class="link-icon"> Hero Cost Calculator </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,6 +24,7 @@
 </mat-sidenav-container>
 <mat-toolbar color="primary" class="toolbar-height">
   <mat-toolbar-row>
-    <span><small>All rights belong to <a href="https://play.google.com/store/apps/dev?id=4782903676457533844">&copy; StormX</a></small></span>
+    <span><small>All rights belong to <a href="https://play.google.com/store/apps/dev?id=4782903676457533844">&copy;
+          StormX</a></small></span>
   </mat-toolbar-row>
 </mat-toolbar>
