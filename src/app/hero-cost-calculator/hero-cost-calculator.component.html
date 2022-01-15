@@ -16,7 +16,7 @@
                 Startlevel is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field class="half-width"  appearance="fill">
+        <mat-form-field class="half-width" appearance="fill">
             <mat-label>Endlevel</mat-label>
             <input type="number" min="1" max="12000" matInput formControlName="endLevel" placeholder="0">
             <mat-error
@@ -35,11 +35,15 @@
     <mat-error *ngIf="heroCostFormGroup.hasError('endBeforeStart')">
         Endlevel should be greater then Startlevel
     </mat-error>
-    <mat-checkbox formControlName="formatted">Formatted</mat-checkbox>
+    <mat-checkbox formControlName="formatted">Format to Idle Kingdom numbers</mat-checkbox>
 </form>
 <mat-divider></mat-divider>
-<div *ngIf="heroCostFormGroup.valid">
+<div *ngIf="heroCostFormGroup.valid && heroCostFormGroup.get('formatted')?.value">
     <p id="coinsCost">Coins cost: {{ coinsInOutput | numberFormat:heroCostFormGroup.get('formatted')?.value }}</p>
     <p id="soulstonesCost">Soul stones cost: {{ soulstonesInOutput |
         numberFormat:heroCostFormGroup.get('formatted')?.value}}</p>
+</div>
+<div *ngIf="heroCostFormGroup.valid && !heroCostFormGroup.get('formatted')?.value">
+    <p id="coinsCost">Coins cost: {{ coinsInOutput | number }}</p>
+    <p id="soulstonesCost">Soul stones cost: {{ soulstonesInOutput | number}}</p>
 </div>

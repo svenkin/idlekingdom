@@ -120,8 +120,8 @@ export class HeroCostCalculatorComponent implements OnInit {
         cs = this.dataCoinsTotal[endLevel - 2] - this.dataCoinsTotal[startLevel - 2];
         sss = this.dataSoulstonesTotal[endLevel - 2] - this.dataSoulstonesTotal[startLevel - 2];
       } else if (startLevel === 1) {
-        cs = this.dataCoinsTotal[endLevel - 2];
-        sss = this.dataSoulstonesTotal[endLevel - 2];
+        cs = this.dataCoinsTotal[endLevel - 2] || 0;
+        sss = this.dataSoulstonesTotal[endLevel - 2] || 0;
       } else {
         cs = 0;
         sss = 0;
