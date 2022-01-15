@@ -1,0 +1,7 @@
+.half-width {
+    width: 50%;
+    box-sizing: border-box;
+    &:first-child {
+        padding-right: 5px;
+    }
+}

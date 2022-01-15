@@ -8,10 +8,12 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item [routerLink]="'/hero-cost-calculator'"> Hero Cost Calculator </a>
+      <a mat-list-item href="https://discord.gg/KMbhHrZrHF"> Join the discord </a>
+      <a mat-list-item href="https://www.reddit.com/r/IdleKingdom/"> Join reddit </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div style="height: 88vh;">
+    <div class="content-container">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { NumberFormatPipe } from './number-format.pipe';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 
@@ -27,7 +28,8 @@ import { NumberFormatPipe } from './number-format.pipe';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule, 
+    MatDividerModule
   ]
 })
 export class HeroCostCalculatorModule { }

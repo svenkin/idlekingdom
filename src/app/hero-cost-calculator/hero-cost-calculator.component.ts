@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
+
+export class HeroCostErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
+
+export const levelValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const startLevel = control.get('startLevel')?.value;
+  const endLevel = control.get('endLevel')?.value;
+  return startLevel > endLevel ? { endBeforeStart: true } : null;
+};
+
 @Component({
   selector: 'app-hero-cost-calculator',
   templateUrl: './hero-cost-calculator.component.html',
@@ -35,18 +42,17 @@ export class HeroCostCalculatorComponent implements OnInit {
   soulstonesCostSpan = 0;
 
   heroCostFormGroup = this.fb.group({
-    startLevel: this.fb.control(0, [Validators.required, Validators.min(0), Validators.max(12000)]),
-    endLevel: this.fb.control(0, [Validators.required, Validators.min(0), Validators.max(12000)]),
+    startLevel: this.fb.control(1, [Validators.required, Validators.min(1), Validators.max(12000)]),
+    endLevel: this.fb.control(1, [Validators.required, Validators.min(1), Validators.max(12000)]),
     formatted: this.fb.control(false)
-  })
-  matcher = new MyErrorStateMatcher();
+  }, { validators: levelValidator })
+  matcher = new HeroCostErrorStateMatcher();
 
   constructor(private readonly fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.calcData();
-    this.heroCostFormGroup.valueChanges.subscribe(()=>{
-      console.log('TEST')
+    this.heroCostFormGroup.valueChanges.subscribe(() => {
       this.calculateCost();
     })
   }
@@ -105,19 +111,21 @@ export class HeroCostCalculatorComponent implements OnInit {
     }
   }
   public calculateCost() {
-    let startLevel = this.heroCostFormGroup.get('startLevel')?.value;
-    let endLevel = this.heroCostFormGroup.get('endLevel')?.value;
-    let cs = 0;
-    let sss = 0;
-    if (startLevel != 1) {
-      cs = this.dataCoinsTotal[endLevel - 2] - this.dataCoinsTotal[startLevel - 2];
-      sss = this.dataSoulstonesTotal[endLevel - 2] - this.dataSoulstonesTotal[startLevel - 2];
-    } else {
-      cs = this.dataCoinsTotal[endLevel - 2];
-      sss = this.dataSoulstonesTotal[endLevel - 2];
+    if(this.heroCostFormGroup.valid){
+      let startLevel = this.heroCostFormGroup.get('startLevel')?.value;
+      let endLevel = this.heroCostFormGroup.get('endLevel')?.value;
+      let cs = 0;
+      let sss = 0;
+      if (startLevel != 1) {
+        cs = this.dataCoinsTotal[endLevel - 2] - this.dataCoinsTotal[startLevel - 2];
+        sss = this.dataSoulstonesTotal[endLevel - 2] - this.dataSoulstonesTotal[startLevel - 2];
+      } else {
+        cs = 0;
+        sss = 0;
+      }
+      this.coinsInOutput = cs;
+      this.soulstonesInOutput = sss;
     }
-    this.coinsInOutput = cs;
-    this.soulstonesInOutput = sss;
   }
 }
 

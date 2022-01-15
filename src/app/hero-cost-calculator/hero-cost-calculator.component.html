@@ -1,23 +1,45 @@
 <form [formGroup]="heroCostFormGroup">
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Startlevel</mat-label>
-        <input type="number" min="0" max="12000" matInput formControlName="startLevel" [errorStateMatcher]="matcher"
-            placeholder="0">
-        <mat-hint>Errors appear instantly!</mat-hint>
-        <!--<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>-->
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Endlevel</mat-label>
-        <input type="number" min="0" max="12000" matInput formControlName="endLevel" placeholder="0">
-        <mat-hint>Errors appear instantly!</mat-hint>
-    </mat-form-field>
+    <div>
+        <mat-form-field class="half-width" appearance="fill">
+            <mat-label>Startlevel</mat-label>
+            <input type="number" min="1" max="12000" matInput formControlName="startLevel" [errorStateMatcher]="matcher"
+                placeholder="0">
+            <mat-error
+                *ngIf="heroCostFormGroup.get('startLevel')?.hasError('min') && !heroCostFormGroup.get('startLevel')?.hasError('required')">
+                Startlevel has to be at least 1
+            </mat-error>
+            <mat-error
+                *ngIf="heroCostFormGroup.get('startLevel')?.hasError('max') && !heroCostFormGroup.get('startLevel')?.hasError('required')">
+                Startlevel can be maximum 12.000
+            </mat-error>
+            <mat-error *ngIf="heroCostFormGroup.get('startLevel')?.hasError('required')">
+                Startlevel is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width"  appearance="fill">
+            <mat-label>Endlevel</mat-label>
+            <input type="number" min="1" max="12000" matInput formControlName="endLevel" placeholder="0">
+            <mat-error
+                *ngIf="heroCostFormGroup.get('endLevel')?.hasError('min') && !heroCostFormGroup.get('endLevel')?.hasError('required')">
+                Endlevel has to be at least 1
+            </mat-error>
+            <mat-error
+                *ngIf="heroCostFormGroup.get('endLevel')?.hasError('max') && !heroCostFormGroup.get('endLevel')?.hasError('required')">
+                Endlevel can be maximum 12.000
+            </mat-error>
+            <mat-error *ngIf="heroCostFormGroup.get('endLevel')?.hasError('required')">
+                Endlevel is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <mat-error *ngIf="heroCostFormGroup.hasError('endBeforeStart')">
+        Endlevel should be greater then Startlevel
+    </mat-error>
     <mat-checkbox formControlName="formatted">Formatted</mat-checkbox>
 </form>
-
-<p id="coinsCost">Coins cost: {{ coinsInOutput | numberFormat:heroCostFormGroup.get('formatted')?.value }}</p>
-<p id="soulstonesCost">Soul stones cost: {{ soulstonesInOutput | numberFormat:heroCostFormGroup.get('formatted')?.value}}</p>
+<mat-divider></mat-divider>
+<div *ngIf="heroCostFormGroup.valid">
+    <p id="coinsCost">Coins cost: {{ coinsInOutput | numberFormat:heroCostFormGroup.get('formatted')?.value }}</p>
+    <p id="soulstonesCost">Soul stones cost: {{ soulstonesInOutput |
+        numberFormat:heroCostFormGroup.get('formatted')?.value}}</p>
+</div>
