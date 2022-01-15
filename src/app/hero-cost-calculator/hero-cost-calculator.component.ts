@@ -111,14 +111,17 @@ export class HeroCostCalculatorComponent implements OnInit {
     }
   }
   public calculateCost() {
-    if(this.heroCostFormGroup.valid){
+    if (this.heroCostFormGroup.valid) {
       let startLevel = this.heroCostFormGroup.get('startLevel')?.value;
       let endLevel = this.heroCostFormGroup.get('endLevel')?.value;
       let cs = 0;
       let sss = 0;
-      if (startLevel != 1) {
+      if (startLevel > 1) {
         cs = this.dataCoinsTotal[endLevel - 2] - this.dataCoinsTotal[startLevel - 2];
         sss = this.dataSoulstonesTotal[endLevel - 2] - this.dataSoulstonesTotal[startLevel - 2];
+      } else if (startLevel === 1) {
+        cs = this.dataCoinsTotal[endLevel - 2];
+        sss = this.dataSoulstonesTotal[endLevel - 2];
       } else {
         cs = 0;
         sss = 0;
