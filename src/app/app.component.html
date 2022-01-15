@@ -11,9 +11,11 @@
 </mat-toolbar>
 <mat-sidenav-container heigth="90vh">
   <mat-sidenav #sidenav>
-    <mat-nav-list>
+    <mat-nav-list class="nav-list">
       <a mat-list-item [routerLink]="'/hero-cost-calculator'"><img src="assets/herocost.png"
           alt="Hero Cost Calculator Icon" class="link-icon"> Hero Cost Calculator </a>
+          <a mat-list-item [routerLink]="'/faq'"><img src="assets/faq_icon.png"
+            alt="FAQ Icon" class="link-icon">FAQ</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
