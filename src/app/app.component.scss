@@ -18,7 +18,10 @@
     display: flex;
     height: 100%;
 }
-.link-icon{
+.link-icon {
     height: 100%;
     padding: 3px 15px 3px 0;
+}
+.mat-nav-list .mat-list-item {
+    padding: 5px 20px 5px 5px;
 }

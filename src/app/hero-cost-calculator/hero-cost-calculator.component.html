@@ -39,11 +39,26 @@
 </form>
 <mat-divider></mat-divider>
 <div *ngIf="heroCostFormGroup.valid && heroCostFormGroup.get('formatted')?.value">
-    <p id="coinsCost">Coins cost: {{ coinsInOutput | numberFormat:heroCostFormGroup.get('formatted')?.value }}</p>
-    <p id="soulstonesCost">Soul stones cost: {{ soulstonesInOutput |
-        numberFormat:heroCostFormGroup.get('formatted')?.value}}</p>
+    <span class="result-container">
+        <img src="assets/gold_icon.png" alt="Gold icon" class="result-icon">
+        <p id="coinsCost">{{ coinsInOutput | numberFormat:true }}</p>
+    </span>
+    <span class="result-container">
+        <img src="assets/soulstone_icon.png" alt="Gold icon" class="result-icon">
+        <p id="soulstonesCost">{{
+            soulstonesInOutput | numberFormat:true}}</p>
+    </span>
+
+
 </div>
 <div *ngIf="heroCostFormGroup.valid && !heroCostFormGroup.get('formatted')?.value">
-    <p id="coinsCost">Coins cost: {{ coinsInOutput | number }}</p>
-    <p id="soulstonesCost">Soul stones cost: {{ soulstonesInOutput | number}}</p>
+    <span class="result-container">
+        <img src="assets/gold_icon.png" alt="Gold icon" class="result-icon">
+        <p id="coinsCost">{{ coinsInOutput | number }}</p>
+    </span>
+    <span class="result-container">
+        <img src="assets/soulstone_icon.png" alt="Gold icon" class="result-icon">
+        <p id="soulstonesCost">{{
+            soulstonesInOutput | number}}</p>
+    </span>
 </div>
