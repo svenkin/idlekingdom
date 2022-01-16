@@ -96,7 +96,7 @@ export class HeroCostCalculatorComponent implements OnInit {
     for (let i = 0; i < 11989; i++) {
       if (i != 0 && i % 10 == 0) {
         if ((i % 50) >= 40) {
-          coinsDelta += 7;
+          coinsDelta += 4;
         } else if ((i % 50) >= 30) {
           coinsDelta += 3;
         } else if ((i % 50) >= 20) {
