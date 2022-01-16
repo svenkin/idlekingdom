@@ -32,7 +32,7 @@ export class HeroCostCalculatorComponent implements OnInit {
     3, 3, 3, 3, 4, 3, 3, 3, 3, 4,
     2, 3, 3, 3, 3, 2, 3, 3, 3, 3,
     3, 3, 4, 3, 4, 3, 3, 4, 3, 4,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3
   ];
   incSoulstones: any = [
     2, 3, 2, 3, 2, 3, 2, 3, 2, 3,
@@ -107,6 +107,7 @@ export class HeroCostCalculatorComponent implements OnInit {
       }
       coinsCost += coinsDelta + this.incCoins[i % this.incCoins.length];
       this.dataCoins.push(coinsCost);
+      console.log(this.dataCoins[52],this.dataCoins[53])
       this.dataCoinsTotal.push(this.dataCoinsTotal[this.dataCoinsTotal.length - 1] + coinsCost);
     }
   }
