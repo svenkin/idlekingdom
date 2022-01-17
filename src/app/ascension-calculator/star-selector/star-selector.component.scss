@@ -1,0 +1,8 @@
+.background-star {
+    cursor: pointer;
+}
+.ascension-stars app-star {
+    &:nth-child(5n) {
+        margin-right: 15px;
+    }
+}

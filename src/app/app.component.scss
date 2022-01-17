@@ -21,7 +21,8 @@
 .link-icon {
     height: 100%;
     padding: 3px 15px 3px 0;
+    box-sizing: border-box;
 }
-.mat-nav-list .mat-list-item {
-    padding: 5px 20px 5px 5px;
+.mat-nav-list .mat-list-item .mat-list-item-content{
+    padding: 5px 16px;
 }

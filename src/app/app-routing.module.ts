@@ -12,13 +12,17 @@ const routes: Routes = [
     loadChildren: () => import('./hero-cost-calculator/hero-cost-calculator.module').then(m => m.HeroCostCalculatorModule)
   },
   {
+    path: 'ascension-calculator',
+    loadChildren: () => import('./ascension-calculator/ascension-calculator.module').then(m => m.AscensionCalculatorModule)
+  },
+  {
     path: 'faq',
     loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

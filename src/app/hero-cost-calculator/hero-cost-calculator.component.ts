@@ -21,71 +21,21 @@ export const levelValidator: ValidatorFn = (control: AbstractControl): Validatio
   styleUrls: ['./hero-cost-calculator.component.scss']
 })
 export class HeroCostCalculatorComponent implements OnInit {
-  dataCoins: any = [];
-  dataSoulstones: any = [];
-  dataCoinsTotal: any = [];
-  dataSoulstonesTotal: any = [];
+  dataCoins: Array<number> = [];
+  dataSoulstones: Array<number> = [];
+  dataCoinsTotal: Array<number> = [];
+  dataSoulstonesTotal: Array<number> = [];
   coinsInOutput = 0;
   soulstonesInOutput = 0;
-  incCoins2: any = [
-    3, 4, 3, 4, 4, 3, 4, 3, 4, 4,
-    3, 3, 3, 3, 4, 3, 3, 3, 3, 4,
-    2, 3, 3, 3, 3, 2, 3, 3, 3, 3,
-    3, 3, 4, 3, 4, 3, 3, 4, 3, 4,
-    3, 3, 3, 3, 3, 3, 3, 3, 3, 3
-  ];
   incCoins = [
-    3,
-    4,
-    3,
-    4,
-    4,
-    3,
-    4,
-    3,
-    4,
-    4,
-    3,
-    3,
-    3,
-    3,
-    4,
-    3,
-    3,
-    3,
-    3,
-    4,
-    2,
-    3,
-    3,
-    3,
-    3,
-    2,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    4,
-    3,
-    4,
-    3,
-    3,
-    4,
-    3,
-    4,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3]
-  incSoulstones: any = [
+    3, 4, 3, 4, 4, 3, 4, 3, 4,
+    4, 3, 3, 3, 3, 4, 3, 3, 3,
+    3, 4, 2, 3, 3, 3, 3, 2, 3,
+    3, 3, 3, 3, 3, 4, 3, 4, 3,
+    3, 4, 3, 4, 3, 3, 3, 3, 3,
+    3, 3, 3, 3, 3
+  ]
+  incSoulstones: Array<number> = [
     2, 3, 2, 3, 2, 3, 2, 3, 2, 3,
     2, 2, 2, 2, 2, 2, 2, 2, 2, 2
   ];
@@ -132,7 +82,7 @@ export class HeroCostCalculatorComponent implements OnInit {
     }
     this.dataCoins = [];
     this.dataCoinsTotal = [];
-    let coinsDelta  = 5;
+    let coinsDelta = 5;
     let lastCoinsDelta = 5;
     let coinsCost = 100;
     for (let i = 0; i < 10; i++) {
