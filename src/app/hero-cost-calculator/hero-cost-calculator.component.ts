@@ -27,13 +27,64 @@ export class HeroCostCalculatorComponent implements OnInit {
   dataSoulstonesTotal: any = [];
   coinsInOutput = 0;
   soulstonesInOutput = 0;
-  incCoins: any = [
+  incCoins2: any = [
     3, 4, 3, 4, 4, 3, 4, 3, 4, 4,
     3, 3, 3, 3, 4, 3, 3, 3, 3, 4,
     2, 3, 3, 3, 3, 2, 3, 3, 3, 3,
     3, 3, 4, 3, 4, 3, 3, 4, 3, 4,
     3, 3, 3, 3, 3, 3, 3, 3, 3, 3
   ];
+  incCoins = [
+    3,
+    4,
+    3,
+    4,
+    4,
+    3,
+    4,
+    3,
+    4,
+    4,
+    3,
+    3,
+    3,
+    3,
+    4,
+    3,
+    3,
+    3,
+    3,
+    4,
+    2,
+    3,
+    3,
+    3,
+    3,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    3,
+    4,
+    3,
+    3,
+    4,
+    3,
+    4,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3]
   incSoulstones: any = [
     2, 3, 2, 3, 2, 3, 2, 3, 2, 3,
     2, 2, 2, 2, 2, 2, 2, 2, 2, 2
@@ -81,7 +132,8 @@ export class HeroCostCalculatorComponent implements OnInit {
     }
     this.dataCoins = [];
     this.dataCoinsTotal = [];
-    let coinsDelta = 5;
+    let coinsDelta  = 5;
+    let lastCoinsDelta = 5;
     let coinsCost = 100;
     for (let i = 0; i < 10; i++) {
       this.dataCoins.push(coinsCost);
@@ -94,6 +146,19 @@ export class HeroCostCalculatorComponent implements OnInit {
     this.dataCoins.push(coinsCost);
     this.dataCoinsTotal.push(this.dataCoinsTotal[this.dataCoinsTotal.length - 1] + coinsCost);
     for (let i = 0; i < 11989; i++) {
+      if (i % 10 === 0) {
+        if (i > 0) {
+          coinsDelta = lastCoinsDelta
+        }
+      }
+      coinsCost += coinsDelta + this.incCoins[i % this.incCoins.length]
+      lastCoinsDelta = coinsDelta + this.incCoins[i % this.incCoins.length]
+      this.dataCoins.push(coinsCost);
+      this.dataCoinsTotal.push(this.dataCoinsTotal[this.dataCoinsTotal.length - 1] + coinsCost);
+    }
+
+
+    /*for (let i = 0; i < 11989; i++) {
       if (i != 0 && i % 10 == 0) {
         if ((i % 50) >= 40) {
           coinsDelta += 4;
@@ -105,11 +170,10 @@ export class HeroCostCalculatorComponent implements OnInit {
           coinsDelta += 4;
         }
       }
-      coinsCost += coinsDelta + this.incCoins[i % this.incCoins.length];
+      coinsCost += (coinsDelta + this.incCoins[i % this.incCoins.length]);
       this.dataCoins.push(coinsCost);
-      console.log(this.dataCoins[52],this.dataCoins[53])
       this.dataCoinsTotal.push(this.dataCoinsTotal[this.dataCoinsTotal.length - 1] + coinsCost);
-    }
+    }*/
   }
   public calculateCost() {
     if (this.heroCostFormGroup.valid) {
@@ -118,6 +182,7 @@ export class HeroCostCalculatorComponent implements OnInit {
       let cs = 0;
       let sss = 0;
       if (startLevel > 1) {
+        console.log(this.dataCoinsTotal[startLevel], this.dataCoinsTotal[endLevel])
         cs = this.dataCoinsTotal[endLevel - 2] - this.dataCoinsTotal[startLevel - 2];
         sss = this.dataSoulstonesTotal[endLevel - 2] - this.dataSoulstonesTotal[startLevel - 2];
       } else if (startLevel === 1) {
