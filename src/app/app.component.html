@@ -2,11 +2,11 @@
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Idle Kingdom Ressources</span>
+  <span class="hide-on-mobile">Idle Kingdom Resources</span>
   <span class="spacer"></span>
   <mat-slide-toggle [checked]="darkMode" #toggle>
-    <mat-icon *ngIf="darkMode">dark_mode</mat-icon>
-    <mat-icon *ngIf="!darkMode">light_mode</mat-icon>
+    <mat-icon *ngIf="!darkMode">dark_mode</mat-icon>
+    <mat-icon *ngIf="darkMode">light_mode</mat-icon>
   </mat-slide-toggle>
   <a href="https://discord.gg/KMbhHrZrHF" class="link-button"><img src="assets/discord_icon.svg" alt="Discord icon"
       class="toolbar-link-icon"></a>
