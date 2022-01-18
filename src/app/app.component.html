@@ -4,6 +4,10 @@
   </button>
   <span>Idle Kingdom Ressources</span>
   <span class="spacer"></span>
+  <mat-slide-toggle [checked]="darkMode" #toggle>
+    <mat-icon *ngIf="darkMode">dark_mode</mat-icon>
+    <mat-icon *ngIf="!darkMode">light_mode</mat-icon>
+  </mat-slide-toggle>
   <a href="https://discord.gg/KMbhHrZrHF" class="link-button"><img src="assets/discord_icon.svg" alt="Discord icon"
       class="toolbar-link-icon"></a>
   <a href="https://www.reddit.com/r/IdleKingdom/" class="link-button"><img src="assets/reddit_icon.svg"
