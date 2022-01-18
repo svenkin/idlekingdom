@@ -23,7 +23,6 @@ export class StarSelectorComponent implements OnInit {
   }
 
   public select(count: number) {
-    console.log(count)
     this.currentStarLevel = count;
     this.starLevelChange.emit(count);
     this.cref.markForCheck();

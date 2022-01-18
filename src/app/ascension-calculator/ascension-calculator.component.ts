@@ -9,10 +9,11 @@ export class AscensionCalculatorComponent implements OnInit {
 
   constructor() { }
   public selectedStartLevel = 0;
-  public selectedEndLevel = 0;
+  public selectedEndLevel = 1;
   public shardsCost = 0;
   public ascensionStonesCost = 0;
   ngOnInit(): void {
+    this.calculateCost();
   }
   private shardsNeededPerLevel = 10;
   private ascensionStonesPer5Level = [80, 160, 320, 640, 1280]
@@ -20,15 +21,22 @@ export class AscensionCalculatorComponent implements OnInit {
   public calculateCost() {
     this.shardsCost = 0;
     this.ascensionStonesCost = 0;
+    let ascensionStonesCostLevel = 0;
     if (this.selectedEndLevel >= this.selectedStartLevel) {
+      // Ascension cost
       let currentBase = 0;
-      for (let i = this.selectedStartLevel; i < this.selectedEndLevel; i++) {
-        this.shardsCost += (i + 1) * this.shardsNeededPerLevel;
-        if (i % 5 === 0) {
-          currentBase = this.ascensionStonesPer5Level[i / 5]
+      for (let i = 1; i <= this.selectedEndLevel; i++) {
+        if (i <= 6) {
+          currentBase = 80
+        } else {
+          currentBase = this.ascensionStonesPer5Level[Math.floor((i - 1) / 5)]
         }
-        console.log(i, currentBase)
-        this.ascensionStonesCost += (i + 1 % 5) * currentBase
+        ascensionStonesCostLevel += currentBase
+        if (i > this.selectedStartLevel) {
+          this.shardsCost += i * this.shardsNeededPerLevel;
+          this.ascensionStonesCost += ascensionStonesCostLevel;
+        }
+
       }
     }
   }
