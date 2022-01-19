@@ -17,7 +17,7 @@ export class FormationCreatorComponent implements OnInit {
     [HeroTypeSelector.SUPPORT]: []
   }
   public selectableWarriors = Array.from({ length: 5 }, (v, i) => i)
-  public selectableSupports = Array.from({ length: 7 }, (v, i) => i)
+  public selectableSupports = Array.from({ length: 8 }, (v, i) => i)
   constructor(private readonly router: ActivatedRoute,
     private readonly formationService: FormationCreatorService,
     private readonly snackbar: MatSnackBar) { }

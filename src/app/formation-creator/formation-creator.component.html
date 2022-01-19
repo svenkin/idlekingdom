@@ -1,7 +1,11 @@
-<app-hero-selector *ngFor="let index of selectableSupports" type="support" (selectedHeroChange)="changeHero($event)"
-    [selectedHero]="preselected.support[index] || ''"></app-hero-selector>
-<br>
-<app-hero-selector *ngFor="let index of selectableWarriors" type="warrior" (selectedHeroChange)="changeHero($event)"
-    [selectedHero]="preselected.warrior[index] || ''"></app-hero-selector>
+<div class="hero-selection-container">
+    <app-hero-selector *ngFor="let index of selectableSupports" type="support" (selectedHeroChange)="changeHero($event)"
+        [selectedHero]="preselected.support[index] || ''" class="support-container"></app-hero-selector>
+    <div class="warrior-selection-container">
+        <app-hero-selector *ngFor="let index of selectableWarriors" type="warrior"
+            (selectedHeroChange)="changeHero($event)" [selectedHero]="preselected.warrior[index] || ''">
+        </app-hero-selector>
+    </div>
+</div>
 <br>
 <button mat-raised-button (click)="copyLinkToClipboard()">Copy link to clipboard</button>

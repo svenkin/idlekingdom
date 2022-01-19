@@ -1,0 +1,48 @@
+.hero-selection-container {
+    background: url(./../../assets/castle-full.png) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 800px;
+    position: relative;
+}
+.support-container {
+    position: absolute;
+    &:nth-child(1) {
+        left: 51px;
+        top: 80px;
+    }
+    &:nth-child(2) {
+        top: 53px;
+        left: 230px;
+    }
+    &:nth-child(3) {
+        top: 129px;
+        left: 166px;
+    }
+    &:nth-child(4) {
+        top: 140px;
+        left: 381px;
+    }
+    &:nth-child(5) {
+        top: 237px;
+        left: 257px;
+    }
+    &:nth-child(6) {
+        top: 340px;
+        left: 360px;
+    }
+    &:nth-child(7) {
+        top: 372px;
+        left: 159px;
+    }
+    &:nth-child(8) {
+        top: 472px;
+        left: 189px;
+    }
+}
+.warrior-selection-container {
+    position: absolute;
+    left: 650px;
+    top: 210px;
+    width: 150px;
+}

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 
@@ -24,7 +25,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     }]),
     MatDialogModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDividerModule
   ]
 })
 export class FormationCreatorModule { }
