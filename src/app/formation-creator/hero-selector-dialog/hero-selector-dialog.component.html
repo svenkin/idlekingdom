@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Select a hero</h1>
+<span *ngFor="let hero of selectableHeroList" class="hero-selector-container">
+    <!--<img src="assets/heros/hero-frame.png" alt="">-->
+    <img [src]="'assets/heros/hero-frame.png'" [style.background-image]="'url(./assets/heros/'+hero+'.png)'" alt=""
+        class="hero-image" (click)="select(hero)">
+</span>
+<div mat-dialog-actions>
+    <button mat-button (click)="select('remove')" color="warn">Remove Hero</button>
+    <button mat-button (click)="close()" cdkFocusInitial>Abort</button>
+</div>

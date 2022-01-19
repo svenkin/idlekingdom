@@ -1,0 +1,17 @@
+.hero-image {
+    width: 85px;
+    //position: absolute;
+    //left: 50%;
+    //transform: translateX(-50%);
+    //bottom: 11px;
+    //background: url(./../../../assets/heros/camilla.png) no-repeat;
+    background-position-x: center;
+    background-position-y: 55%;
+    background-size: 65px;
+    background-repeat: no-repeat;
+    padding: 0 3px;
+}
+.hero-selector-container {
+    position: relative;
+    cursor: pointer;
+}

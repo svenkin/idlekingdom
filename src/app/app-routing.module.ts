@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./ascension-calculator/ascension-calculator.module').then(m => m.AscensionCalculatorModule)
   },
   {
+    path: 'formation-creator',
+    loadChildren: () => import('./formation-creator/formation-creator.module').then(m => m.FormationCreatorModule)
+  },
+  {
     path: 'faq',
     loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
   }
