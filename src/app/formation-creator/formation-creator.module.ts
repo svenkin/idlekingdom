@@ -6,6 +6,7 @@ import { HeroSelectorDialogComponent } from './hero-selector-dialog/hero-selecto
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -22,7 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
       component: FormationCreatorComponent
     }]),
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ]
 })
 export class FormationCreatorModule { }

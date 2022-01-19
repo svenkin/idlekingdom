@@ -3,3 +3,5 @@
 <br>
 <app-hero-selector *ngFor="let index of selectableWarriors" type="warrior" (selectedHeroChange)="changeHero($event)"
     [selectedHero]="preselected.warrior[index] || ''"></app-hero-selector>
+<br>
+<button mat-raised-button (click)="copyLinkToClipboard()">Copy link to clipboard</button>
