@@ -35,7 +35,7 @@ export class FormationCreatorComponent implements OnInit {
   }
   copyLinkToClipboard() {
     const encodedHeroSelection = this.formationService.encodeObject(this.completeHeroSelection)
-    navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}/#/formation-creator?load=${encodedHeroSelection}`)
+    navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}#/formation-creator?load=${encodedHeroSelection}`)
       .then(() => {
         this.snackbar.open('Copying to clipboard was successful!');
       }, () => {
