@@ -9,9 +9,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "pre-commit": [
-    "build:github"
-  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
