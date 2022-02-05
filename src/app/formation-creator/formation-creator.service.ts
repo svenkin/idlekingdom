@@ -63,6 +63,11 @@ export class FormationCreatorService {
         parsedWithType[HeroTypeSelector.ALL][heroName] = parsedHeroObject;
       });
     } else {
+      this.urlHeroDecoder.forEach((heroName: string) => {
+        const parsedHeroObject: any = this.heroInformation[heroName]
+        parsedHeroObject.selected = false
+        parsedWithType[HeroTypeSelector.ALL][heroName] = parsedHeroObject;
+      });
       console.warn('Error when parsing the given query string')
     }
     return parsedWithType;

@@ -23,7 +23,8 @@ export class FormationCreatorComponent implements OnInit {
     private readonly snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.heroSelection = this.formationService.decodeString(this.router.snapshot.queryParams['load']);
+    this.heroSelection = this.formationService.decodeString(this.router.snapshot.queryParams['load'] || '');
+    console.log(this.heroSelection)
     this.completeHeroSelection = this.heroSelection.all;
     this.preselected.warrior = this.heroSelection.warrior.filter((hero: any) => hero.selected).map(({ name }: any) => name)
     this.preselected.support = this.heroSelection.support.filter((hero: any) => hero.selected).map(({ name }: any) => name)
