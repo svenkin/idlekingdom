@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:github": "ng build --configuration=production --base-href https://svenkin.github.io/idlekingdom/",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "watch": "ng build --watch --configuration development"
   },
   "private": true,
   "dependencies": {

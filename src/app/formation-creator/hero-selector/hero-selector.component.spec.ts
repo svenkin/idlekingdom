@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { HeroSelectorComponent } from './hero-selector.component';
 
@@ -8,7 +9,9 @@ describe('HeroSelectorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeroSelectorComponent ]
+      declarations: [ HeroSelectorComponent ],
+      imports: [MatDialogModule],
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }]
     })
     .compileComponents();
   });

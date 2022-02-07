@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { of } from 'rxjs';
 
 import { FormationCreatorComponent } from './formation-creator.component';
 
@@ -8,9 +11,16 @@ describe('FormationCreatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormationCreatorComponent ]
+      imports: [RouterModule, MatSnackBarModule],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          snapshot: { queryParams: {} }
+        }
+      }],
+      declarations: [FormationCreatorComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
