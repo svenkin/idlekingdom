@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng-mocks';
+import { StarComponent } from '../star/star.component';
 
 import { StarSelectorComponent } from './star-selector.component';
 
@@ -8,9 +10,12 @@ describe('StarSelectorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StarSelectorComponent ]
+      declarations: [
+        StarSelectorComponent,
+        MockComponent(StarComponent)
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

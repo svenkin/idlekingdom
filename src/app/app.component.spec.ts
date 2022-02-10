@@ -7,6 +7,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { MockModule } from 'ng-mocks';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -15,6 +17,7 @@ describe('AppComponent', () => {
       imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        MockModule(RouterModule),
         MatToolbarModule,
         MatSidenavModule,
         MatIconModule,

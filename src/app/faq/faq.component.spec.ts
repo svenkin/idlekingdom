@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { FaqComponent } from './faq.component';
 
@@ -8,6 +9,7 @@ describe('FaqComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatDividerModule],
       declarations: [ FaqComponent ]
     })
     .compileComponents();

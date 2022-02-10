@@ -27,6 +27,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatSnackBarModule,
     MatDividerModule
-  ]
+  ],
+  providers: []
 })
 export class FormationCreatorModule { }

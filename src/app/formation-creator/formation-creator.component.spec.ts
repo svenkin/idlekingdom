@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { of } from 'rxjs';
 
 import { FormationCreatorComponent } from './formation-creator.component';
+import { HeroSelectorComponent } from './hero-selector/hero-selector.component';
+import { MockComponent } from 'ng-mocks';
 
 describe('FormationCreatorComponent', () => {
   let component: FormationCreatorComponent;
@@ -18,7 +19,10 @@ describe('FormationCreatorComponent', () => {
           snapshot: { queryParams: {} }
         }
       }],
-      declarations: [FormationCreatorComponent],
+      declarations: [
+        FormationCreatorComponent,
+        MockComponent(HeroSelectorComponent)
+      ],
     })
       .compileComponents();
   });

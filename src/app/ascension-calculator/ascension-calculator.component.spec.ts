@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng-mocks';
 
 import { AscensionCalculatorComponent } from './ascension-calculator.component';
+import { StarSelectorComponent } from './star-selector/star-selector.component';
+import { StarComponent } from './star/star.component';
 
 describe('AscensionCalculatorComponent', () => {
   let component: AscensionCalculatorComponent;
@@ -8,7 +11,10 @@ describe('AscensionCalculatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AscensionCalculatorComponent ]
+      declarations: [ 
+        AscensionCalculatorComponent,
+        MockComponent(StarSelectorComponent)
+      ]
     })
     .compileComponents();
   });
