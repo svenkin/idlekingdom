@@ -13,29 +13,27 @@
   <a href="https://www.reddit.com/r/Idle_Kingdom_Defense/" class="link-button"><img src="assets/reddit_icon.svg"
       alt="Reddit icon" class="toolbar-link-icon"></a>
 </mat-toolbar>
-<mat-sidenav-container heigth="90vh">
+<mat-sidenav-container class="sidenav-full-height">
   <mat-sidenav #sidenav>
     <mat-nav-list class="nav-list">
       <a mat-list-item [routerLink]="'/hero-cost-calculator'"><img src="assets/herocost.png"
           alt="Hero Cost Calculator Icon" class="link-icon"> Hero Cost Calculator </a>
       <a mat-list-item [routerLink]="'/ascension-calculator'"><img src="assets/ascension-stone_icon.png"
           alt="Hero Ascension Calculator Icon" class="link-icon"> Hero Ascension Calculator </a>
-          <a mat-list-item [routerLink]="'/formation-creator'"><img src="assets/formation_icon.png"
-              alt="Hero Formation Creator Icon" class="link-icon"> Hero Formation Creator </a>
+      <a mat-list-item [routerLink]="'/formation-creator'"><img src="assets/formation_icon.png"
+          alt="Hero Formation Creator Icon" class="link-icon"> Hero Formation Creator </a>
       <a mat-list-item [routerLink]="'/faq'"><img src="assets/faq_icon.png" alt="FAQ Icon" class="link-icon">FAQ</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="sidenav-flex">
     <div class="content-container">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <mat-toolbar color="primary" class="toolbar-height">
-  <mat-toolbar-row>
-    <span><small>All rights belong to <a href="https://play.google.com/store/apps/dev?id=4782903676457533844">&copy;
-          StormX</a></small></span>
-    <span class="spacer"></span>
-    <span>Version 0.1.1</span>
-  </mat-toolbar-row>
+  <span><small>All rights belong to <a href="https://play.google.com/store/apps/dev?id=4782903676457533844">&copy;
+        StormX</a></small></span>
+  <span class="spacer"></span>
+  <span>Version 0.1.2</span>
 </mat-toolbar>

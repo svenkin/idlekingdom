@@ -1,12 +1,9 @@
 .content-container {
-    margin: 20px auto;
-    width: 80vw;
+    padding: 10px 5%;
 }
 .toolbar-height {
-    height: 5vh;
-}
-.mat-drawer-container.mat-sidenav-container {
-    height: 90vh;
+    height: 6vh;
+    max-height: 6vh;
 }
 .toolbar-link-icon {
     padding: 8px;
@@ -30,4 +27,7 @@
     @media screen and (max-width: 500px) {
         display: none;
     }
+}
+.sidenav-full-height {
+    height: 88vh;
 }
