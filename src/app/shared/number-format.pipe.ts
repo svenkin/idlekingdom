@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'numberFormat'
 })
 export class NumberFormatPipe implements PipeTransform {
-  transform(value: number, ...args: unknown[]): unknown {
+  transform(value: number, ...args: unknown[]): string | number {
     if (!!args[0]) {
       let formattedString: string | number = value;
       if (value >= 10000000000) {

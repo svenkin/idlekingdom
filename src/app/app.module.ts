@@ -12,10 +12,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingpageComponent
   ],
   imports: [
     BrowserModule,

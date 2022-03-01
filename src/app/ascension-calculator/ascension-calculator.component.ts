@@ -26,17 +26,18 @@ export class AscensionCalculatorComponent implements OnInit {
       // Ascension cost
       let currentBase = 0;
       for (let i = 1; i <= this.selectedEndLevel; i++) {
-        if (i <= 6) {
-          currentBase = 80
+        if (i === 1) {
+          currentBase = 0;
+        } else if (i <= 6) {
+          currentBase = 80;
         } else {
-          currentBase = this.ascensionStonesPer5Level[Math.floor((i - 1) / 5)]
+          currentBase = this.ascensionStonesPer5Level[Math.floor((i - 1) / 5)];
         }
-        ascensionStonesCostLevel += currentBase
+        ascensionStonesCostLevel += currentBase;
         if (i > this.selectedStartLevel) {
           this.shardsCost += i * this.shardsNeededPerLevel;
           this.ascensionStonesCost += ascensionStonesCostLevel;
         }
-
       }
     }
   }

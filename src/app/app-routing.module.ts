@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./formation-creator/formation-creator.module').then(m => m.FormationCreatorModule)
   },
   {
+    path: 'castle-level-calculator',
+    loadChildren: () => import('./castle-level-calculator/castle-level-calculator.module').then(m => m.CastleLevelCalculatorModule)
+  },
+  {
     path: 'faq',
     loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
   }

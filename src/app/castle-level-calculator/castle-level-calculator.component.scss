@@ -1,0 +1,18 @@
+.half-width {
+    width: 50%;
+    box-sizing: border-box;
+    &:first-child {
+        padding-right: 5px;
+    }
+}
+.mat-divider {
+    margin: 10px 0 15px 0;
+}
+.result-icon {
+    height: 75px;
+}
+.result-container {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}

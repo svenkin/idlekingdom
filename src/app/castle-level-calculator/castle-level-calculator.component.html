@@ -1,0 +1,52 @@
+<form [formGroup]="castleLevelFormGroup">
+    <div>
+        <mat-form-field class="half-width" appearance="fill">
+            <mat-label>Startlevel</mat-label>
+            <input type="number" min="1" max="50000" matInput formControlName="startLevel" [errorStateMatcher]="errorMatcher"
+                placeholder="0">
+            <mat-error
+                *ngIf="castleLevelFormGroup.get('startLevel')?.hasError('min') && !castleLevelFormGroup.get('startLevel')?.hasError('required')">
+                Startlevel has to be at least 1
+            </mat-error>
+            <mat-error
+                *ngIf="castleLevelFormGroup.get('startLevel')?.hasError('max') && !castleLevelFormGroup.get('startLevel')?.hasError('required')">
+                Startlevel can be maximum 50.000
+            </mat-error>
+            <mat-error *ngIf="castleLevelFormGroup.get('startLevel')?.hasError('required')">
+                Startlevel is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width" appearance="fill">
+            <mat-label>Endlevel</mat-label>
+            <input type="number" min="1" max="50000" matInput formControlName="endLevel" placeholder="0">
+            <mat-error
+                *ngIf="castleLevelFormGroup.get('endLevel')?.hasError('min') && !castleLevelFormGroup.get('endLevel')?.hasError('required')">
+                Endlevel has to be at least 1
+            </mat-error>
+            <mat-error
+                *ngIf="castleLevelFormGroup.get('endLevel')?.hasError('max') && !castleLevelFormGroup.get('endLevel')?.hasError('required')">
+                Endlevel can be maximum 50.000
+            </mat-error>
+            <mat-error *ngIf="castleLevelFormGroup.get('endLevel')?.hasError('required')">
+                Endlevel is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <mat-error *ngIf="castleLevelFormGroup.hasError('endBeforeStart')">
+        Endlevel should be greater then Startlevel
+    </mat-error>
+    <mat-checkbox formControlName="formatted">Format to Idle Kingdom numbers</mat-checkbox>
+</form>
+<mat-divider></mat-divider>
+<div *ngIf="castleLevelFormGroup.valid && castleLevelFormGroup.get('formatted')?.value">
+    <span class="result-container">
+        <img src="assets/gold_icon.png" alt="Gold icon" class="result-icon">
+        <p id="coinsCost">{{ coinsResult | numberFormat:true }}</p>
+    </span>
+</div>
+<div *ngIf="castleLevelFormGroup.valid && !castleLevelFormGroup.get('formatted')?.value">
+    <span class="result-container">
+        <img src="assets/gold_icon.png" alt="Gold icon" class="result-icon">
+        <p id="coinsCost">{{ coinsResult | number }}</p>
+    </span>
+</div>

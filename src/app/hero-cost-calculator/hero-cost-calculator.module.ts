@@ -1,24 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HeroCostCalculatorComponent } from './hero-cost-calculator.component';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-
-import { NumberFormatPipe } from './number-format.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
   declarations: [
-    HeroCostCalculatorComponent,
-    NumberFormatPipe
+    HeroCostCalculatorComponent
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '',
@@ -28,7 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatCheckboxModule, 
+    MatCheckboxModule,
     MatDividerModule
   ]
 })

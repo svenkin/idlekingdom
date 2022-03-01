@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-
-export class HeroCostErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { CustomErrorStateMatcher } from '../shared/custom-error-state-matcher';
 
 export const levelValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const startLevel = control.get('startLevel')?.value;
@@ -46,8 +40,8 @@ export class HeroCostCalculatorComponent implements OnInit {
     startLevel: this.fb.control(1, [Validators.required, Validators.min(1), Validators.max(12000)]),
     endLevel: this.fb.control(1, [Validators.required, Validators.min(1), Validators.max(12000)]),
     formatted: this.fb.control(false)
-  }, { validators: levelValidator })
-  matcher = new HeroCostErrorStateMatcher();
+  }, { validators: levelValidator });
+  matcher = new CustomErrorStateMatcher();
 
   constructor(private readonly fb: FormBuilder) { }
 
@@ -106,24 +100,6 @@ export class HeroCostCalculatorComponent implements OnInit {
       this.dataCoins.push(coinsCost);
       this.dataCoinsTotal.push(this.dataCoinsTotal[this.dataCoinsTotal.length - 1] + coinsCost);
     }
-
-
-    /*for (let i = 0; i < 11989; i++) {
-      if (i != 0 && i % 10 == 0) {
-        if ((i % 50) >= 40) {
-          coinsDelta += 4;
-        } else if ((i % 50) >= 30) {
-          coinsDelta += 3;
-        } else if ((i % 50) >= 20) {
-          coinsDelta += 4;
-        } else if ((i % 50) >= 10) {
-          coinsDelta += 4;
-        }
-      }
-      coinsCost += (coinsDelta + this.incCoins[i % this.incCoins.length]);
-      this.dataCoins.push(coinsCost);
-      this.dataCoinsTotal.push(this.dataCoinsTotal[this.dataCoinsTotal.length - 1] + coinsCost);
-    }*/
   }
   public calculateCost() {
     if (this.heroCostFormGroup.valid) {
