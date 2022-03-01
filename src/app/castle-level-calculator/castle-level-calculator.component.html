@@ -2,8 +2,8 @@
     <div>
         <mat-form-field class="half-width" appearance="fill">
             <mat-label>Startlevel</mat-label>
-            <input type="number" min="1" max="50000" matInput formControlName="startLevel" [errorStateMatcher]="errorMatcher"
-                placeholder="0">
+            <input type="number" min="1" max="50000" matInput formControlName="startLevel"
+                [errorStateMatcher]="errorMatcher" placeholder="0">
             <mat-error
                 *ngIf="castleLevelFormGroup.get('startLevel')?.hasError('min') && !castleLevelFormGroup.get('startLevel')?.hasError('required')">
                 Startlevel has to be at least 1
@@ -50,3 +50,4 @@
         <p id="coinsCost">{{ coinsResult | number }}</p>
     </span>
 </div>
+<div class="credits">Credits to <span>Nick</span> from our discord</div>
